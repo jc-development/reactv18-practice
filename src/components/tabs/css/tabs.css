@@ -1,0 +1,10 @@
+.tabs {
+  display: flex;
+  list-style: none;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.tabs button.active {
+  border-bottom: none;
+}
