@@ -6,6 +6,8 @@ import Glimmer from './Glimmer';
 import Toolbar from './Toolbar';
 import FancyButton from '../fancy-button/FancyButton';
 
+import Counter from '../Counter/Counter';
+
 const Comments = lazy(() => import('./Comments'));
 const Photos = lazy(() => import('./Photos'));
 
@@ -30,6 +32,7 @@ const TabSwitcher: FC = () => {
       <FancyButton ref={buttonRef}>
         woo fancy button
       </FancyButton>
+      <Counter />
     </div>
   );
 };
