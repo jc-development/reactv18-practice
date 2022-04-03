@@ -8,11 +8,19 @@ import FancyButton from '../fancy-button/FancyButton';
 
 import Counter from '../Counter/Counter';
 
+import usePageBottom from '../../hooks/usePageBottom';
+import useWindowSize from '../../hooks/useWindowSize';
+
+import './css/tab-switcher.css';
+
 const Comments = lazy(() => import('./Comments'));
 const Photos = lazy(() => import('./Photos'));
 
 
 const TabSwitcher: FC = () => {
+
+  const bottom = usePageBottom();
+  const { width } = useWindowSize();
 
   const buttonRef = useRef<any>(null);
 
@@ -20,8 +28,17 @@ const TabSwitcher: FC = () => {
 
   const handleTabSelect = (tab: string) => setTab(tab);
 
+  if (bottom) {
+    console.log('AT BOTTOM!');
+  }
+
+  if (width < 500) {
+    console.log('SHRINK TO MOBILE');
+    
+  }
+
   return (
-    <div>
+    <div className="vh-400">
       <Tabs handleClickChannel={handleTabSelect} activeTab={tab} />
       <Suspense fallback={<Glimmer />}>
         {tab === 'photos' ? <Photos /> : <Comments />}
