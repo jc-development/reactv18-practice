@@ -24,6 +24,12 @@ export default function useWindowSize() {
     }, []
   );
 
+  useEffect(
+    () => {
+      console.log('width: ', windowSize.width);
+    }, [windowSize.width]
+  );
+
 
   return windowSize;
 

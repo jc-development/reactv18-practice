@@ -38,7 +38,7 @@ const TabSwitcher: FC = () => {
   }
 
   return (
-    <div className="vh-400">
+    <div>
       <Tabs handleClickChannel={handleTabSelect} activeTab={tab} />
       <Suspense fallback={<Glimmer />}>
         {tab === 'photos' ? <Photos /> : <Comments />}
